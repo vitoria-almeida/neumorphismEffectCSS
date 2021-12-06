@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #eaeef0;
+}
+
+.content {
+    position: relative;
+    display: flex;
+}
+
+.content span {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background: #eaeef0;
+    border: 6px solid #eaeef0;
+    border-radius: 50%;
+    box-shadow: -8px -8px 15px rgba(255,255,255,1), 8px 8px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.content span::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset 10px 10px 20px rgba(0,0,0,0.5), inset -5px -5px 15px rgba(255,255,255,1);   
+}
+
+.content span::after {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    background: #eaeef0;
+    border: 3px solid #eaeef0;
+    border-radius: 50%;
+    box-shadow: -8px -8px 25px rgba(255,255,255,1), 8px 8px 25px rgba(0,0,0,0.25), inset 3px 3px 10px rgba(0,0,0,0.15), inset -1px -1px 15px rgba(255,255,255,1);
+}
+
+.content span i {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    filter: blur(1px);
+    background: linear-gradient(#42abff, #ff4f8b, #ffeb3b);
+    animation: animateContent 1s linear infinite;
+}
+
+@keyframes animateContent {
+   0% {
+        transform: rotate(0deg); 
+   }
+   100% {
+        transform: rotate(360deg); 
+   }
+}
+
+
+.airplane {
+    position: absolute;
+    inset: 50px;
+    z-index: 10;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.airplane .fa-plane {
+    position: absolute;
+    color: #ff518c;
+    font-size: 7.5rem;
+    -webkit-text-stroke: 2px rgb(51, 51, 51);
+    animation: animateAirplane 0.2s linear infinite;
+}
+
+@keyframes animateAirplane {
+    0%, 100% {
+        transform: translate(0px,0px) rotate(-45deg);
+    }
+    100% {
+        transform: translate(3px,0px) rotate(-45deg);
+    }
+}
+
+.fa-cloud {
+    position: absolute;  
+    left: calc(200px*var(--i));
+    font-size: 4rem;
+    z-index: -2;    
+    color: #fff;
+    -webkit-text-stroke: 2px rgb(51, 51, 51);
+    animation: animateClouds 5s linear infinite;
+}
+
+@keyframes animateClouds {
+    0% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(calc(60 * 5px))
+    }
+}
+
